@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Flappy Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container" class="relative">
+        <div id="score-display" class="font-press-start text-4xl text-white text-center" style="text-shadow: 2px 2px #333;">
+            0
+        </div>
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </div>
+
+    <div id="game-over-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="w-full max-w-sm bg-white p-8 rounded-xl shadow-2xl text-center">
+            <h1 id="game-over-title" class="font-press-start text-3xl text-red-600 mb-4">Game Over</h1>
+            
+            <img id="game-over-display-image" src="" alt="Game Over" class="w-full h-32 object-contain mx-auto mb-4 hidden"> 
+            
+            <p class="text-lg text-gray-700 mb-2">Your Score:</p>
+            <div id="final-score" class="font-press-start text-5xl text-gray-900 mb-8">0</div>
+            <button id="restart-game-btn" class="w-full bg-blue-600 text-white p-3 rounded-lg shadow-md hover:bg-blue-700 transition-all font-press-start text-lg">
+                Restart
+            </button>
+        </div>
+    </div>
+
+    <!-- Load project asset mapping first so game.js can use gameAssets -->
+    <script src="source.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

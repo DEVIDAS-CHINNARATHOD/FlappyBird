@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Your Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="asset-modal">
+        <h1 class="font-press-start text-2xl text-center mb-6 text-gray-800">Welcome!</h1>
+        <p class="text-center text-gray-600 mb-6">Please enter your name to start.</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label for="name-input" class="sr-only">Your Name</label>
+                <input type="text" id="name-input" placeholder="Enter your name" class="w-full p-3 border border-gray-300 rounded-md text-center text-lg">
+            </div>
+        </div>
+        
+        <button id="start-game-btn" class="w-full bg-green-600 text-white p-3 rounded-lg shadow-md hover:bg-green-700 transition-all mt-8 font-press-start text-lg disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+            Start Game
+        </button>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name-input');
+        const startGameBtn = document.getElementById('start-game-btn');
+
+        // Enable button only when a name is typed
+        nameInput.addEventListener('input', () => {
+            if (nameInput.value.trim().length > 0) {
+                startGameBtn.disabled = false;
+            } else {
+                startGameBtn.disabled = true;
+            }
+        });
+
+        // Save name to storage and go to game page
+        startGameBtn.addEventListener('click', () => {
+            sessionStorage.setItem('playerName', nameInput.value.trim());
+            window.location.href = 'game.html';
+        });
+    </script>
+</body>
+</html>
